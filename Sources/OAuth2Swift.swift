@@ -194,8 +194,6 @@ open class OAuth2Swift: OAuthSwift {
     @discardableResult
     open func renewAccessToken(withRefreshToken refreshToken: String, parameters: OAuthSwift.Parameters? = nil, headers: OAuthSwift.Headers? = nil, completionHandler completion: @escaping TokenCompletionHandler) -> OAuthSwiftRequestHandle? {
         var parameters = parameters ?? OAuthSwift.Parameters()
-        parameters["client_id"] = self.consumerKey
-        parameters["client_secret"] = self.consumerSecret
         parameters["refresh_token"] = refreshToken
         parameters["grant_type"] = "refresh_token"
 
